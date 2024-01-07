@@ -1,3 +1,4 @@
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:tastybite/authentication/auth_page.dart';
 import 'package:tastybite/global/global.dart';
@@ -69,6 +70,44 @@ class _HomePageState extends State<HomePage> {
           SliverToBoxAdapter(
             child: Padding(
               padding: EdgeInsets.all(10.0),
+              child: Container(
+                height: MediaQuery.of(context).size.height * .3,
+                width: MediaQuery.of(context).size.width,
+                child: CarouselSlider(
+                    items: items.map((index) {
+                      return Builder(builder: (BuildContext context) {
+                        return Container(
+                          width: MediaQuery.of(context).size.width,
+                          margin: EdgeInsets.symmetric(horizontal: 1.0),
+                          decoration: BoxDecoration(
+                            color: Colors.grey[300],
+                          ),
+                          child: Padding(
+                            padding: EdgeInsets.all(4.0),
+                            child: Image.asset(
+                              index,
+                              fit: BoxFit.fill,
+                            ),
+                          ),
+                        );
+                      });
+                    }).toList(),
+                    options: CarouselOptions(
+                      height: MediaQuery.of(context).size.height * .3,
+                      aspectRatio: 16 / 9,
+                      viewportFraction: 0.8,
+                      initialPage: 0,
+                      enableInfiniteScroll: true,
+                      reverse: false,
+                      autoPlay: true,
+                      autoPlayInterval: Duration(seconds: 5),
+                      autoPlayAnimationDuration: Duration(milliseconds: 800),
+                      autoPlayCurve: Curves.decelerate,
+                      enlargeCenterPage: true,
+                      enlargeFactor: 0.3,
+                      scrollDirection: Axis.horizontal,
+                    )),
+              ),
             ),
           )
         ],
