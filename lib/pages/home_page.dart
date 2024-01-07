@@ -1,7 +1,11 @@
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:tastybite/authentication/auth_page.dart';
 import 'package:tastybite/global/global.dart';
+import 'package:tastybite/models/sellers.dart';
+import 'package:tastybite/widgets/info_design.dart';
 import 'package:tastybite/widgets/my_drawer.dart';
 
 class HomePage extends StatefulWidget {
@@ -47,6 +51,7 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.grey[200],
       appBar: AppBar(
         flexibleSpace: Container(
           decoration: const BoxDecoration(
@@ -109,6 +114,36 @@ class _HomePageState extends State<HomePage> {
                     )),
               ),
             ),
+          ),
+
+          // To get the user data
+          StreamBuilder<QuerySnapshot>(
+            stream:
+                FirebaseFirestore.instance.collection("sellers").snapshots(),
+            builder: (context, snapshot) {
+              // if there has no data then it will show circular indicator or else it will show the data
+              return !snapshot.hasData
+                  ? SliverToBoxAdapter(
+                      child: Center(
+                        child: CircularProgressIndicator(),
+                      ),
+                    )
+                  : SliverStaggeredGrid.countBuilder(
+                      crossAxisCount: 1,
+                      staggeredTileBuilder: (c) => StaggeredTile.fit(1),
+                      itemBuilder: (context, index) {
+                        Sellers sModel = Sellers.fromJson(
+                            snapshot.data!.docs[index].data()!
+                                as Map<String, dynamic>);
+                        //Design for sellers
+                        return InfoDesignWidget(
+                          model: sModel,
+                          context: context,
+                        );
+                      },
+                      itemCount: snapshot.data!.docs.length,
+                    );
+            },
           )
         ],
       ),
