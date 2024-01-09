@@ -5,7 +5,7 @@ import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:tastybite/authentication/auth_page.dart';
 import 'package:tastybite/global/global.dart';
 import 'package:tastybite/models/sellers.dart';
-import 'package:tastybite/widgets/info_design.dart';
+import 'package:tastybite/widgets/sellers_design.dart';
 import 'package:tastybite/widgets/my_drawer.dart';
 
 class HomePage extends StatefulWidget {
@@ -66,7 +66,7 @@ class _HomePageState extends State<HomePage> {
                 tileMode: TileMode.clamp),
           ),
         ),
-        title: Text(sharedPreferences!.getString("name")!),
+        title: Text("TASTY BITE"),
         centerTitle: true,
       ),
       drawer: MyDrawer(),
@@ -136,7 +136,7 @@ class _HomePageState extends State<HomePage> {
                             snapshot.data!.docs[index].data()!
                                 as Map<String, dynamic>);
                         //Design for sellers
-                        return InfoDesignWidget(
+                        return SellersDesignWidget(
                           model: sModel,
                           context: context,
                         );

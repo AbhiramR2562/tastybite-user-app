@@ -1,19 +1,26 @@
 import 'package:flutter/material.dart';
 import 'package:tastybite/models/sellers.dart';
+import 'package:tastybite/pages/menus_page.dart';
 
-class InfoDesignWidget extends StatefulWidget {
+class SellersDesignWidget extends StatefulWidget {
   Sellers? model;
   BuildContext? context;
-  InfoDesignWidget({super.key, this.model, this.context});
+  SellersDesignWidget({super.key, this.model, this.context});
 
   @override
-  State<InfoDesignWidget> createState() => _InfoDesignWidgetState();
+  State<SellersDesignWidget> createState() => _SellersDesignWidgetState();
 }
 
-class _InfoDesignWidgetState extends State<InfoDesignWidget> {
+class _SellersDesignWidgetState extends State<SellersDesignWidget> {
   @override
   Widget build(BuildContext context) {
     return InkWell(
+      onTap: () => Navigator.push(
+          context,
+          MaterialPageRoute(
+              builder: (context) => MenusPage(
+                    model: widget.model,
+                  ))),
       splashColor: Colors.amber,
       child: Padding(
         padding: const EdgeInsets.all(5.0),
