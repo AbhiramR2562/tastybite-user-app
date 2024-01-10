@@ -1,6 +1,9 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:tastybite/assistantMethod/cart_item_counter.dart';
+import 'package:tastybite/assistantMethod/total_amount.dart';
 import 'package:tastybite/firebase_options.dart';
 import 'package:tastybite/global/global.dart';
 import 'package:tastybite/pages/splash_page.dart';
@@ -21,13 +24,19 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'Tasty Bite',
-      theme: ThemeData(
-        primarySwatch: Colors.grey,
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (c) => CartItemCounter()),
+        ChangeNotifierProvider(create: (c) => TotalAmount()),
+      ],
+      child: MaterialApp(
+        debugShowCheckedModeBanner: false,
+        title: 'Tasty Bite',
+        theme: ThemeData(
+          primarySwatch: Colors.grey,
+        ),
+        home: SplashPage(),
       ),
-      home: SplashPage(),
     );
   }
 }

@@ -2,6 +2,7 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
+import 'package:tastybite/assistantMethod/assistant_method.dart';
 import 'package:tastybite/authentication/auth_page.dart';
 import 'package:tastybite/global/global.dart';
 import 'package:tastybite/models/sellers.dart';
@@ -47,6 +48,12 @@ class _HomePageState extends State<HomePage> {
     "slider/26.jpg",
     "slider/27.jpg",
   ];
+
+  @override
+  void initState() {
+    super.initState();
+    clearCartNow(context);
+  }
 
   @override
   Widget build(BuildContext context) {

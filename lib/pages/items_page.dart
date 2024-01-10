@@ -4,6 +4,7 @@ import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:tastybite/global/global.dart';
 import 'package:tastybite/models/items.dart';
 import 'package:tastybite/models/menus.dart';
+import 'package:tastybite/widgets/app_bar.dart';
 import 'package:tastybite/widgets/item_design.dart';
 import 'package:tastybite/widgets/sellers_design.dart';
 import 'package:tastybite/widgets/my_drawer.dart';
@@ -21,33 +22,13 @@ class _ItemsPageState extends State<ItemsPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        flexibleSpace: Container(
-          decoration: const BoxDecoration(
-            gradient: LinearGradient(
-                colors: [
-                  Colors.orange,
-                  Colors.red,
-                ],
-                begin: FractionalOffset(0.0, 0.0),
-                end: FractionalOffset(1.0, 0.0),
-                stops: [0.0, 1.0],
-                tileMode: TileMode.clamp),
-          ),
-        ),
-        title: Text(
-          "TASTY BITE",
-        ),
-        centerTitle: true,
-        automaticallyImplyLeading: true,
-      ),
-      drawer: const MyDrawer(),
+      appBar: MyAppBar(sellerUID: widget.model!.sellerUID),
       body: CustomScrollView(
         slivers: [
           SliverPersistentHeader(
             pinned: true,
             delegate: TextWidgetHeader(
-              title: "Items of " + widget.model!.menuTitle.toString() + " Menu",
+              title: "Items of " + widget.model!.menuTitle.toString(),
             ),
           ),
           StreamBuilder<QuerySnapshot>(

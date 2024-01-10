@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tastybite/models/items.dart';
+import 'package:tastybite/pages/item_detail_page.dart';
 
 class ItemDesignWidget extends StatefulWidget {
   Items? model;
@@ -14,6 +15,12 @@ class _ItemDesignWidgetState extends State<ItemDesignWidget> {
   @override
   Widget build(BuildContext context) {
     return InkWell(
+      onTap: () => Navigator.push(
+          context,
+          MaterialPageRoute(
+              builder: (context) => ItemDetailsPage(
+                    model: widget.model,
+                  ))),
       splashColor: Colors.amber,
       child: Padding(
         padding: const EdgeInsets.all(5.0),

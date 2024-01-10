@@ -146,6 +146,7 @@ class _SignUpPageState extends State<SignUpPage> {
       "userName": nameController.text.trim(),
       "userProfileUrl": sellerImageUrl,
       "status": "approved",
+      "userCart": ['garbageValue'],
     });
 
     // Save data localy
@@ -154,6 +155,7 @@ class _SignUpPageState extends State<SignUpPage> {
     await sharedPreferences!.setString("email", currentUser.email.toString());
     await sharedPreferences!.setString("name", nameController.text.trim());
     await sharedPreferences!.setString("photoUrl", sellerImageUrl);
+    await sharedPreferences!.setStringList("userCart", ['garbageValue']);
   }
 
   @override

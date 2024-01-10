@@ -81,6 +81,10 @@ class _LoginPageState extends State<LoginPage> {
         await sharedPreferences!
             .setString("photoUrl", snapshot.data()!["userProfileUrl"]);
 
+        List<String> userCartList = snapshot.data()!["userCart"].cast<String>();
+
+        await sharedPreferences!.setStringList("userCart", userCartList);
+
         Navigator.pop(context);
         Navigator.pushReplacement(
             context, MaterialPageRoute(builder: (c) => HomePage()));

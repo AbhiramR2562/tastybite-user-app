@@ -1,9 +1,12 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
+import 'package:fluttertoast/fluttertoast.dart';
+import 'package:tastybite/assistantMethod/assistant_method.dart';
 import 'package:tastybite/global/global.dart';
 import 'package:tastybite/models/menus.dart';
 import 'package:tastybite/models/sellers.dart';
+import 'package:tastybite/pages/splash_page.dart';
 import 'package:tastybite/widgets/menu_design.dart';
 import 'package:tastybite/widgets/sellers_design.dart';
 import 'package:tastybite/widgets/my_drawer.dart';
@@ -40,37 +43,19 @@ class _MenusPageState extends State<MenusPage> {
         ),
         centerTitle: true,
         automaticallyImplyLeading: true,
-        actions: [
-          IconButton(
-              onPressed: () {
-                // Send user to cart page
-              },
-              icon: const Icon(
-                Icons.shopping_cart,
-                color: Colors.white,
-              )),
-          Positioned(
-              child: Stack(
-            children: [
-              Icon(
-                Icons.brightness_1,
-                size: 20,
-                color: Colors.green,
-              ),
-              Positioned(
-                  top: 3,
-                  right: 4,
-                  child: Center(
-                    child: Text(
-                      "0",
-                      style: TextStyle(color: Colors.white, fontSize: 12),
-                    ),
-                  ))
-            ],
-          ))
-        ],
+        leading: IconButton(
+          onPressed: () {
+            clearCartNow(context);
+            Navigator.push(
+                context, MaterialPageRoute(builder: (context) => SplashPage()));
+
+            Fluttertoast.showToast(msg: "Cart has been cleared successfully..");
+          },
+          icon: Icon(
+            Icons.arrow_back,
+          ),
+        ),
       ),
-      drawer: const MyDrawer(),
       body: CustomScrollView(
         slivers: [
           SliverPersistentHeader(
