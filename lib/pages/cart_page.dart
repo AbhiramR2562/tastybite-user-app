@@ -112,6 +112,7 @@ class _CartPageState extends State<CartPage> {
           Align(
             alignment: Alignment.bottomLeft,
             child: FloatingActionButton.extended(
+              heroTag: "btn1",
               onPressed: () {
                 clearCartNow(context);
                 Navigator.push(context,
@@ -132,6 +133,7 @@ class _CartPageState extends State<CartPage> {
           Align(
             alignment: Alignment.bottomLeft,
             child: FloatingActionButton.extended(
+              heroTag: "btn1",
               onPressed: () {
                 // Go to the address page
                 Navigator.push(

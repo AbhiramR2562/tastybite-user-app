@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:tastybite/authentication/auth_page.dart';
 import 'package:tastybite/global/global.dart';
+import 'package:tastybite/pages/home_page.dart';
+import 'package:tastybite/pages/my_order_page.dart';
 
 class MyDrawer extends StatelessWidget {
   const MyDrawer({super.key});
@@ -66,6 +68,8 @@ class MyDrawer extends StatelessWidget {
                   ),
                   onTap: () {
                     print("Home drawer clicked...");
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => HomePage()));
                   },
                 ),
 
@@ -81,6 +85,8 @@ class MyDrawer extends StatelessWidget {
                   ),
                   onTap: () {
                     print("My order clicked...");
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => MyOrderPage()));
                   },
                 ),
 
