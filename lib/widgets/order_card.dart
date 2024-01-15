@@ -8,12 +8,13 @@ class OrderCard extends StatelessWidget {
   final List<DocumentSnapshot>? data;
   final String? orderID;
   final List<String>? separateQuantitiesList;
-  const OrderCard(
-      {super.key,
-      this.itemCount,
-      this.data,
-      this.orderID,
-      this.separateQuantitiesList});
+  const OrderCard({
+    super.key,
+    this.itemCount,
+    this.data,
+    this.orderID,
+    this.separateQuantitiesList,
+  });
 
   @override
   Widget build(BuildContext context) {
