@@ -113,7 +113,7 @@ class _LoginPageState extends State<LoginPage> {
           const SizedBox(height: 20),
           Container(
             child: Image.asset(
-              'assets/images/depositphotos_668296520-stock-illustration-burger-soda-cartoon-vector-icon.jpg',
+              'assets/images/213943308-fast-food-flat-vector-illustration-removebg-preview.png',
               height: 230,
             ),
           ),

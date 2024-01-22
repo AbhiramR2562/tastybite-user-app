@@ -90,7 +90,8 @@ class _OrderDetailsPageState extends State<OrderDetailsPage> {
                         orderStatus == "ended"
                             ? Image.asset(
                                 "assets/images/delivery-man-with-boxes.jpg")
-                            : Image.asset("assets/images/delivery-man.jpg"),
+                            : Image.asset(
+                                "assets/images/way-concept-illustration.jpg"),
                         const Divider(thickness: 4),
                         FutureBuilder(
                           future: FirebaseFirestore.instance

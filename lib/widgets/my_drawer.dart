@@ -5,6 +5,7 @@ import 'package:tastybite/pages/address_page.dart';
 import 'package:tastybite/pages/history_page.dart';
 import 'package:tastybite/pages/home_page.dart';
 import 'package:tastybite/pages/my_order_page.dart';
+import 'package:tastybite/pages/search_page.dart';
 
 class MyDrawer extends StatelessWidget {
   const MyDrawer({super.key});
@@ -69,6 +70,8 @@ class MyDrawer extends StatelessWidget {
                     style: TextStyle(color: Colors.black),
                   ),
                   onTap: () {
+                    Navigator.pop(context);
+
                     Navigator.push(context,
                         MaterialPageRoute(builder: (context) => HomePage()));
                   },
@@ -85,7 +88,8 @@ class MyDrawer extends StatelessWidget {
                     style: TextStyle(color: Colors.black),
                   ),
                   onTap: () {
-                    print("My order clicked...");
+                    Navigator.pop(context);
+
                     Navigator.push(context,
                         MaterialPageRoute(builder: (context) => MyOrderPage()));
                   },
@@ -102,7 +106,8 @@ class MyDrawer extends StatelessWidget {
                     style: TextStyle(color: Colors.black),
                   ),
                   onTap: () {
-                    print("History clicked...");
+                    Navigator.pop(context);
+
                     Navigator.push(context,
                         MaterialPageRoute(builder: (context) => HistoryPage()));
                   },
@@ -119,7 +124,10 @@ class MyDrawer extends StatelessWidget {
                     style: TextStyle(color: Colors.black),
                   ),
                   onTap: () {
-                    print("Search clicked...");
+                    Navigator.pop(context);
+
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => SearchPage()));
                   },
                 ),
 
@@ -134,7 +142,8 @@ class MyDrawer extends StatelessWidget {
                     style: TextStyle(color: Colors.black),
                   ),
                   onTap: () {
-                    print("Location clicked...");
+                    Navigator.pop(context);
+
                     Navigator.push(context,
                         MaterialPageRoute(builder: (context) => AddressPage()));
                   },
@@ -153,7 +162,7 @@ class MyDrawer extends StatelessWidget {
                   onTap: () {
                     print("Home drawer clicked...");
                     firebaseAuth.signOut().then((value) {
-                      Navigator.push(context,
+                      Navigator.pushReplacement(context,
                           MaterialPageRoute(builder: (context) => AuthPage()));
                     });
                   },

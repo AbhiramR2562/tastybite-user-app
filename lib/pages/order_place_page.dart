@@ -55,7 +55,7 @@ class _OrderPlacePageState extends State<OrderPlacePage> {
 
         //Order has been placed successfully
         Fluttertoast.showToast(
-            msg: "Congratulation, Order has been placed successfully");
+            msg: "Congratulations! Your order has been placed successfully!");
       });
     });
   }
@@ -83,8 +83,8 @@ class _OrderPlacePageState extends State<OrderPlacePage> {
         decoration: const BoxDecoration(
           gradient: LinearGradient(
               colors: [
-                Colors.orange,
-                Colors.red,
+                Colors.purple,
+                Colors.deepPurple,
               ],
               begin: FractionalOffset(0.0, 0.0),
               end: FractionalOffset(1.0, 0.0),
@@ -102,7 +102,11 @@ class _OrderPlacePageState extends State<OrderPlacePage> {
               },
               child: Text(
                 "Place Order",
-                style: TextStyle(color: Colors.black),
+                style: TextStyle(
+                  color: Colors.black,
+                  fontSize: 18,
+                  fontWeight: FontWeight.bold,
+                ),
               ),
               style: ElevatedButton.styleFrom(
                 backgroundColor: Colors.blue,

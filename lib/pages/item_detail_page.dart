@@ -26,10 +26,13 @@ class _ItemDetailsPageState extends State<ItemDetailsPage> {
         children: [
           Container(
             width: MediaQuery.of(context).size.width,
-            height: 260,
-            child: Image.network(
-              widget.model!.thumbnailUrl.toString(),
-              fit: BoxFit.cover,
+            height: 300,
+            child: Padding(
+              padding: const EdgeInsets.all(2.0),
+              child: Image.network(
+                widget.model!.thumbnailUrl.toString(),
+                fit: BoxFit.cover,
+              ),
             ),
           ),
           Padding(

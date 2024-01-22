@@ -157,7 +157,12 @@ class _AddressDesignState extends State<AddressDesign> {
                     widget.model!.lat!, widget.model!.lng!);
                 //  MapsUtils.openMapWithAddress(widget.model!.fullAddress!);
               },
-              child: Text("Check on Maps"),
+              child: Text(
+                "Check on Maps",
+                style: TextStyle(
+                  color: Colors.white,
+                ),
+              ),
               style: ElevatedButton.styleFrom(
                 backgroundColor: Colors.black54,
               ),
